@@ -42,7 +42,7 @@
 							<iframe src="https://www.facebook.com/plugins/share_button.php?href=<?php echo urlencode(get_permalink()); ?>&layout=button_count&size=large&mobile_iframe=true&appId=106178243154175&width=154&height=28" width="154" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 							</div>
 							<div class="col-md-4">
-								<a href="#"><i class="fa fa-2x fa-print"></i> Imprimir</a>
+								<a href="javascript:void(0);" onClick='window.print();'><i class="fa fa-2x fa-print"></i> Imprimir</a>
 							</div>
 							<div class="col-md-4">
 								<a href="#"><i class="fa fa-2x fa-envelope"></i> Enviar por e-mail</a>
@@ -69,3 +69,11 @@
 		<p>Nenhuma notícia.</p>
 	</article>
 <?php } ?>
+
+<style type="text/css">
+@media print {
+	footer,header,.crop,.relacionados,.redes-sociais {
+		display: none !important;
+	}
+}
+</style>
