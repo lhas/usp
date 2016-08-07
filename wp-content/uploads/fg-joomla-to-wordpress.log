@@ -1,0 +1,78 @@
+=== START test_database 2016-06-01 17:22:19 ===
+Conectado com sucesso no banco de dados do Joomla
+Dados do Joomla encontrados:<br />13 seções<br />359 categorias<br />5382 artigos<br />6 links da web<br />
+[ERROR] Seu banco de dados Joomla contém vários usuários. Você precisa da <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank">versão Premium</a> para importá-los.
+[ERROR] Seu banco de dados Joomla contém algumas galerias PhocaGallery. Você precisa da <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank">versão Premium</a> e do <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/phoca-gallery/" target="_blank">PhocaGallery add-on</a> para importá-los.
+[ERROR] Seu banco de dados Joomla contém alguns contatos. Você precisa da <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank">versão Premium</a> e do <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/contact-manager/" target="_blank">Contact Manager add-on</a> para importá-los.
+=== END test_database 2016-06-01 17:22:19 ===
+
+=== START import 2016-06-01 17:23:03 ===
+Importing categories...
+369 categorias importadas
+Importing posts...
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_a.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_a.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_a.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_a.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_z_b.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_z_b.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_wi.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_wi.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_c.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_c.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_w.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_w.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_wr.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_wr.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../fotosip/Confraternizacao_Projeto_Ipe/images/Confraternizacao%20-%20Projeto%20Ipe_z_j.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/12/Confraternizacao - Projeto Ipe_z_j.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../imprensa/midia/2009/baseado_em_família2.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/11/baseado_em_família2.jpg : Not Found
+[ERROR] Can't copy http://www.ip.usp.br/portal/../imprensa/midia/2009/baseado_em_família.jpg to /ftpusers/HomeFolder/site/wp-content/uploads/2009/11/baseado_em_família.jpg : Not Found
+=== START test_database 2016-06-01 18:17:04 ===
+Conectado com sucesso no banco de dados do Joomla
+Dados do Joomla encontrados:<br />8 categorias<br />32 artigos<br />0 link da web<br />
+=== END test_database 2016-06-01 18:17:04 ===
+
+=== START import 2016-06-01 18:17:25 ===
+Importing categories...
+0 categoria importada
+Importing posts...
+0 post importado
+0 mídia importada
+1 categoria de links importada
+Importing web links...
+0 link da web importado
+Não se esqueça de modificar os links internos.
+IMPORT COMPLETE
+=== END import 2016-06-01 18:17:26 ===
+
+=== START test_database 2016-06-01 18:17:47 ===
+[ERROR] Não pôde se conectar ao banco de dados Joomla. Por favor verifique os seus parâmetros. E certifique-se de que o servidor WordPress pode acessar o banco de dados do Joomla.<br />Table 'pospsa.ethoccontent' doesn't exist<br />Por favor, leia as <a href="https://wordpress.org/plugins/fg-joomla-to-wordpress/faq/" target="_blank">FAQ para a solução</a>.
+=== END test_database 2016-06-01 18:17:47 ===
+
+=== START save 2016-06-01 18:18:04 ===
+Configurações salvas
+=== END save 2016-06-01 18:18:04 ===
+
+=== START test_database 2016-06-01 18:18:08 ===
+Conectado com sucesso no banco de dados do Joomla
+Dados do Joomla encontrados:<br />8 categorias<br />32 artigos<br />0 link da web<br />
+=== END test_database 2016-06-01 18:18:08 ===
+
+=== START test_database 2016-06-01 18:56:40 ===
+[ERROR] Não pôde se conectar ao banco de dados Joomla. Por favor verifique os seus parâmetros. E certifique-se de que o servidor WordPress pode acessar o banco de dados do Joomla.<br />Table 'portal2.ethoc_content' doesn't exist<br />Por favor, leia as <a href="https://wordpress.org/plugins/fg-joomla-to-wordpress/faq/" target="_blank">FAQ para a solução</a>.
+=== END test_database 2016-06-01 18:56:40 ===
+
+=== START test_database 2016-06-01 18:57:07 ===
+Conectado com sucesso no banco de dados do Joomla
+Dados do Joomla encontrados:<br />13 seções<br />359 categorias<br />5382 artigos<br />6 links da web<br />
+[ERROR] Seu banco de dados Joomla contém vários usuários. Você precisa da <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank">versão Premium</a> para importá-los.
+[ERROR] Seu banco de dados Joomla contém algumas galerias PhocaGallery. Você precisa da <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank">versão Premium</a> e do <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/phoca-gallery/" target="_blank">PhocaGallery add-on</a> para importá-los.
+[ERROR] Seu banco de dados Joomla contém alguns contatos. Você precisa da <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/" target="_blank">versão Premium</a> e do <a href="http://www.fredericgilles.net/fg-joomla-to-wordpress/contact-manager/" target="_blank">Contact Manager add-on</a> para importá-los.
+=== END test_database 2016-06-01 18:57:08 ===
+
+=== START import 2016-06-01 18:57:15 ===
+Importing categories...
+0 categoria importada
+Importing posts...
+5329 posts importados
+0 mídia importada
+2 categorias de links importadas
+Importing web links...
+6 links da web importados
+Não se esqueça de modificar os links internos.
+IMPORT COMPLETE
+=== END import 2016-06-01 19:57:05 ===
+
