@@ -45,7 +45,7 @@
 								<a href="javascript:void(0);" onClick='window.print();'><i class="fa fa-2x fa-print"></i> Imprimir</a>
 							</div>
 							<div class="col-md-4">
-								<a href="#"><i class="fa fa-2x fa-envelope"></i> Enviar por e-mail</a>
+								<a href="mailto:?subject=<?php the_title(); ?>&amp;body=Veja esta notícia em: <?php the_permalink(); ?>"><i class="fa fa-2x fa-envelope"></i> Enviar por e-mail</a>
 							</div>
 						</div>
 					</div>
