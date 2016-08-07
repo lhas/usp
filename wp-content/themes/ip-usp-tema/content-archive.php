@@ -39,8 +39,12 @@
 	
 	
 <?php } else { ?>
-	<article>
-		<p>Nenhum resultado na busca!</p>
+	<article style="width: 100%; height: 300px; float: left;">
+		<h2 style="font-size: 20px;">Infelizmente não encontramos nenhum resultado para <strong><?php echo $_GET['s']; ?></strong></h2>
+		<br>
+		<p>
+		Procure por outros termos para encontrar o que está buscando. <br>
+		Obrigado.</p>
 	</article>
 <?php }
 	/* Restore original Post Data */
