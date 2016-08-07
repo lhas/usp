@@ -127,12 +127,30 @@
 								<h1 class="busca">Categoria: <span><?php echo single_cat_title(); ?></span></h1>
 							<?php } else if(is_search()) { ?>
 								<h1 class="busca">Busca por <span><?php echo $_GET['s']; ?></span></h1>
+							<?php } else if(is_page_template("page-faq-biblioteca.php")){ ?>
+								<h1>FAQ da Biblioteca</h1>
 							<?php } else { ?>
-								<h1>IP Comunica</h1>								
+								<h1><?php the_title(); ?></h1>								
 							<?php } ?>
 						</div>
 						<div class="col-sm	-8">
 							<?php if(is_page_template("page-biblioteca.php")){ ?>
+								<nav>
+									<?php 
+										wp_nav_menu( array(
+											'menu'              => 'biblioteca',
+											'theme_location'    => 'biblioteca',
+											'depth'             => 3,
+											'container'         => 'div',
+											'container_class'   => 'collapse navbar-collapse',
+											'container_id'      => 'menu-home',
+											'menu_class'        => 'nav navbar-nav',
+											'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+											'walker'            => new wp_bootstrap_navwalker())
+										);
+									?>
+								</nav>
+							<?php } else if(is_page_template("page-faq-biblioteca.php")){ ?>
 								<nav>
 									<?php 
 										wp_nav_menu( array(
