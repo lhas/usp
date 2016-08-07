@@ -26,7 +26,12 @@
 					<?php 
 						echo get_post_type_object( get_post_type( ) )->labels->singular_name; 
 					?>
-				</div>						
+				</div>
+				
+				<div class="text-center ver-mais">
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-laranja">Ver Mais</a>
+				</div>
+
 			</div>
 		</article>
 
