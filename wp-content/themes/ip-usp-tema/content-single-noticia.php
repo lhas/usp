@@ -39,13 +39,13 @@
 					<div class="redes-sociais">
 						<div class="row">
 							<div class="col-md-4">
-								<div class="fb-like" data-href="<?php the_permalink(); ?>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+							<iframe src="https://www.facebook.com/plugins/share_button.php?href=<?php echo urlencode(get_permalink()); ?>&layout=button_count&size=large&mobile_iframe=true&appId=106178243154175&width=154&height=28" width="154" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 							</div>
 							<div class="col-md-4">
-								<!-- <a href="#"><i class="fa fa-2x fa-print"></i> Imprimir</a> -->
+								<a href="#"><i class="fa fa-2x fa-print"></i> Imprimir</a>
 							</div>
 							<div class="col-md-4">
-								<!-- <a href="#"><i class="fa fa-2x fa-envelope"></i> Enviar por e-mail</a> -->
+								<a href="#"><i class="fa fa-2x fa-envelope"></i> Enviar por e-mail</a>
 							</div>
 						</div>
 					</div>
