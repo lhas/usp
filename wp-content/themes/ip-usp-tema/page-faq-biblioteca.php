@@ -10,7 +10,20 @@
 
     <article class="row">
       <div class="resumo col-md-12">
-        <p class="categoria">A Biblioteca</p>
+        <p class="data">A Biblioteca</p>
+        <h2>Perguntas frequentes</h2>
+
+        <div class="well">
+
+          
+          <div class="input-group">
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Pesquisar">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-warning">Buscar</button>
+            </span>
+          </div>
+          
+        </div>
       </div>
     </article>
 
