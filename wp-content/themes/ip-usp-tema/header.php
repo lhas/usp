@@ -61,44 +61,48 @@
 								
 								<?php
 									$args = array(
-										'post_type' => 'block_menu',
-										'posts_per_page' => 999
+										'post_type' => 'menus',
+										'p' => 7172
 									);
 
 									$block_menus = new WP_Query($args);
 
 									while ( $block_menus->have_posts() ) { $block_menus->the_post(); ?>
+										<?php if( have_rows('componentes') ): ?>
+											<?php while ( have_rows('componentes') ) : the_row(); ?>
+
 									<li class="mega-dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
 									
-										<a aria-expanded="true" title="Ensino e Pesquisa" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"><?php echo get_the_title(); ?></a>
+										<a aria-expanded="true" title="<?php the_sub_field('titulo'); ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">
+										<?php the_sub_field('titulo'); ?></a>
 										
-										<?php if( have_rows('menus') ): ?>
 										<ul role="menu" class="dropdown-menu row">
 
-											<?php while ( have_rows('menus') ) : the_row(); ?>
-
-												<?php if( get_row_layout() == 'coluna' ): ?>
+												<?php if( get_row_layout() == 'item' ): ?>
 													
+													<?php while ( have_rows('colunas') ) : the_row(); ?>
 													<li class="col-sm-3">
 														<ul>
-															<li role="presentation" class="dropdown-header"><?php the_sub_field('coluna'); ?>		</li><li role="presentation" class="divider"></li>
+															<li role="presentation" class="dropdown-header"> <?php the_sub_field('titulo'); ?> </li>
+															<li role="presentation" class="divider"></li>
 															
-															<?php if( have_rows('subitens') ): ?>
-																<?php while ( have_rows('subitens') ) : the_row(); ?>
+															<?php if( have_rows('sub-itens') ): ?>
+																<?php while ( have_rows('sub-itens') ) : the_row(); ?>
 																	<li class="menu-item"><a title="<?php the_sub_field('titulo'); ?>" href="<?php the_sub_field('url'); ?>"><?php the_sub_field('titulo'); ?></a></li>
 																<?php endwhile; ?>
 															<?php endif; ?>
 														</ul>
 													</li>
+													<?php endwhile; ?>
 													
 												<?php endif; ?>
 
-											<?php endwhile; ?>
 
 										</ul>
-										<?php endif; ?>
 
 									</li>
+											<?php endwhile; ?>
+										<?php endif; ?>
 									<?php
 										
 										}
