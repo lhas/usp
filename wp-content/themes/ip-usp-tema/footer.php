@@ -42,6 +42,9 @@
 
 <script type="text/javascript" src="<?= bloginfo('template_url'); ?>/inc/js/jquery.min.js"></script>
 
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/bower_components/pickmeup/css/pickmeup.css">
+<script src="<?php echo get_template_directory_uri(); ?>/bower_components/pickmeup/js/jquery.pickmeup.min.js"></script>
+
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript" src="<?= bloginfo('template_url'); ?>/inc/js/bootstrap.min.js"></script>

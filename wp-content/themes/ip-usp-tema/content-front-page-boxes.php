@@ -44,7 +44,7 @@
 		</div>
 		<div class="links hidden-sm hidden-xs">
 			<ul class="list-unstyled">
-				<li><a href="#">Eventos</a></li>
+				<li><a href="<?php echo get_post_type_archive_link('evento'); ?>">Eventos</a></li>
 				<li><a href="#">Notícias</a></li>
 				<li><a href="#">Publicações</a></li>
 				<li><a href="#">Concursos e Licitações</a></li>

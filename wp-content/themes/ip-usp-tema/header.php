@@ -133,6 +133,8 @@
 								<h1 class="busca">Busca por <span><?php echo $_GET['s']; ?></span></h1>
 							<?php } else if(is_page_template("page-faq-biblioteca.php")){ ?>
 								<h1>FAQ da Biblioteca</h1>
+							<?php } else if(is_post_type_archive('evento')) { ?>
+								<h1>Eventos</h1>	
 							<?php } else { ?>
 								<h1><?php the_title(); ?></h1>								
 							<?php } ?>

@@ -1,4 +1,25 @@
 $(document).ready(function(){
+
+	// Calendário
+	var selector = new Date;
+	selector.addDays(0);
+	$('.calendarios').pickmeup({
+		flat		: true,
+		date		: new Date,
+		format			: 'd-m-Y',
+		mode		: 'single',
+		calendars	: 3,
+		locale: 	{
+		    days: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+		    daysShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+		    daysMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+		    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+		    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+		},
+		change : function (date){
+			alert(date);
+		},
+	});
 	
 	$(".mega-dropdown").find("ul.dropdown-menu").addClass('mega-dropdown-menu row')
 	$(".mega-dropdown").click(function(){

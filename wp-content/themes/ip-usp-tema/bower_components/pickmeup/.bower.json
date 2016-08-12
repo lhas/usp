@@ -1,0 +1,32 @@
+{
+  "name": "pickmeup",
+  "version": "2.9.2",
+  "homepage": "https://github.com/nazar-pc/PickMeUp",
+  "authors": [
+    "Nazar Mokrynskyi <nazar@mokrynskyi.com>"
+  ],
+  "description": "Really simple, powerful and customizable datepicker",
+  "main": [
+    "js/jquery.pickmeup.js",
+    "css/pickmeup.css"
+  ],
+  "keywords": [
+    "datepicker",
+    "date",
+    "calendar"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.6"
+  },
+  "_release": "2.9.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.9.2",
+    "commit": "ad2a7cb1ca7e4de1cf0f1fd96af242d02503ccf0"
+  },
+  "_source": "https://github.com/nazar-pc/PickMeUp.git",
+  "_target": "^2.9.2",
+  "_originalSource": "pickmeup",
+  "_direct": true
+}
