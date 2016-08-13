@@ -1,13 +1,16 @@
 $(document).ready(function(){
 
 	// Calendário
-	var selector = new Date;
-	selector.addDays(0);
+
+	var date = $(".calendarios").data("selected-dates");
+
+	var pickmeupDate = (date && date.length >= 1) ? date : new Date;
+
 	$('.calendarios').pickmeup({
 		flat		: true,
-		date		: new Date,
-		format			: 'd-m-Y',
-		mode		: 'single',
+		date		: pickmeupDate,
+		format			: 'd/m/Y',
+		mode		: 'multiple',
 		calendars	: 3,
 		locale: 	{
 		    days: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
@@ -16,10 +19,45 @@ $(document).ready(function(){
 		    months: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
 		    monthsShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
 		},
-		change : function (date){
-			alert(date);
+		fill: function(a) {
+
+			var options = $('.calendarios').data('pickmeup-options');
+			var currentDate = options.current;
+			var monthCurrentDate = ('0' + (currentDate.getMonth()+1)).slice(-2);
+			var yearCurrentDate = currentDate.getFullYear();
+
+			filtrarEventos(monthCurrentDate, yearCurrentDate);
 		},
+		change: function(a) {
+			$('.calendarios').pickmeup('clear');
+			var currentDates = $("#listaEventos").data('selected-dates');
+			var newDates = currentDates.slice();
+
+			$('.calendarios').pickmeup('set_date', newDates);
+		},
+
 	});
+
+	function filtrarEventos(month, year) {
+
+		$("#listaEventos li").each(function() {
+
+			var thisMonth = $(this).data("month");
+			var thisYear = $(this).data("year");
+
+			if(thisMonth == month && thisYear == year) {
+				$(this).stop().fadeIn('fast');
+			} else {
+				$(this).stop().fadeOut('fast');
+			}
+		});
+	}
+
+	var dataAtual = new Date();
+	var mesAtual = ('0' + (dataAtual.getMonth()+1)).slice(-2);
+	var anoAtual = dataAtual.getFullYear();
+
+	filtrarEventos(mesAtual, anoAtual);
 	
 	$(".mega-dropdown").find("ul.dropdown-menu").addClass('mega-dropdown-menu row')
 	$(".mega-dropdown").click(function(){
@@ -154,5 +192,4 @@ function seletorPost(id){
     	$(this).parent().addClass("active");
     });
 
-    console.log($(id + " .seletor li"));
 }

@@ -926,6 +926,7 @@
 			}
 			$this.val(options.mode == 'single' ? prepared_date[0] : prepared_date[0].join(options.separator));
 		}
+		console.log("aqui");
 	}
 	function destroy () {
 		var	$this	= $(this),

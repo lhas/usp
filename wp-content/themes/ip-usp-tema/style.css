@@ -222,6 +222,7 @@ footer a{color:#fff !important;}
 .calendarios .pickmeup .pmu-instance .pmu-selected,
 .calendarios .pickmeup .pmu-instance .pmu-today {
 	color: #FFF;
+	background: #ff8400;
 }
 .calendarios .pickmeup .pmu-instance nav .pmu-month {
 	font-weight: bold;
@@ -229,6 +230,54 @@ footer a{color:#fff !important;}
 .pmu-instance {
 	margin-right: 60px;
 }
+.calendarios .pickmeup .pmu-instance .pmu-button:hover {
+	color: #ff8400;
+}
+.calendarios .pickmeup .pmu-instance .pmu-today {
+	opacity: 0.5;
+}
+.calendarios .pmu-instance:nth-child(1) {
+	opacity: 0.7;
+}
+.calendarios .pmu-instance:nth-child(3) {
+	opacity: 0.7;
+}
+.calendarios .pmu-instance:nth-child(2) .pmu-month {
+	color: #ff8400;
+}
+.calendarios .pmu-instance nav .pmu-prev,
+.calendarios .pmu-instance nav .pmu-next {
+	color: #ff8400 !important;
+}
+#listaEventos {
+	margin: 0px;
+	padding: 0px;
+}
+#listaEventos li {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+#listaEventos li p.data {
+	color: grey;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 26px;
+	text-transform: uppercase;
+	margin: 0px;
+}
+#listaEventos li a {
+	font-weight: bold;
+	color: #222;
+	text-decoration: none;
+	font-size: 16px;
+	display: inline-block;
+	width: 100%;
+}
+#listaEventos li:hover {
+	opacity: 0.5 !important;
+}
+
 /* MOBILE */
 @media only screen and (min-width:0px) and (max-width:767px) {
 	.conteudo{margin-top: 0;}
