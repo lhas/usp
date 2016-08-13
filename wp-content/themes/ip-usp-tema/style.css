@@ -277,6 +277,32 @@ footer a{color:#fff !important;}
 #listaEventos li:hover {
 	opacity: 0.5 !important;
 }
+.list, .list li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+.list .pergunta {
+	display: block;
+	font-weight: bold;
+	font-size: 13px;
+	color: #222;
+	margin-bottom: 20px;
+	text-decoration: none;
+}
+.list .pergunta:hover {
+	opacity: 0.5;
+}
+.list h2.titulo {
+	font-size: 16px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #222;
+}
+.list .resposta {
+	margin-bottom: 20px;
+	padding-left: 30px;
+}
 
 /* MOBILE */
 @media only screen and (min-width:0px) and (max-width:767px) {

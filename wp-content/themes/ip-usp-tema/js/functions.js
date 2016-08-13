@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+	var options = {
+	    valueNames: [ 'titulo', 'pergunta', 'resposta' ]
+	};
+
+	var hackerList = new List('faq-list', options);
+
+	$(".pergunta").on("click", function() {
+		$(this).parent().find('.resposta').stop().fadeToggle('slow');
+	});
+
 	// Calendário
 
 	var date = $(".calendarios").data("selected-dates");
