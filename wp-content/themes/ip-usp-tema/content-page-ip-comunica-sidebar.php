@@ -1,4 +1,4 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs green-navtab">
 	<li role="presentation" class="active"><a href="#mais-recentes" id="mais-recentes-tab" role="tab" data-toggle="tab" aria-controls="mais-recentes" aria-expanded="true">Mais recentes</a></li>
 	<li role="presentation"><a href="#mais-acessadas" id="mais-acessadas-tab" role="tab" data-toggle="tab" aria-controls="mais-recentes" aria-expanded="true">Mais acessadas</a></li>
 </ul>
@@ -21,8 +21,8 @@
 			while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			
 			<article id="post-<?php the_ID(); ?>" <?php post_class( array("row") ); ?>>
-				<div class="resumo <?php if (has_post_thumbnail()): ?> col-md-9 <?php else: ?> col-md-12 <?php endif; ?>">
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<div class="resumo col-md-12">
+					<h2><a class="green-sidebar-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				</div>
 			</article>
 				
@@ -57,8 +57,8 @@
 			while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 			
 			<article id="post-<?php the_ID(); ?>" <?php post_class( array("row") ); ?>>
-				<div class="resumo <?php if (has_post_thumbnail()): ?> col-md-9 <?php else: ?> col-md-12 <?php endif; ?>">
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<div class="resumo col-md-12">
+					<h2><a class="green-sidebar-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				</div>
 			</article>
 				

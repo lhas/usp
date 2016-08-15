@@ -1,17 +1,14 @@
 <?php 
 	wp_reset_query();
 	$args = array (
-		'post_type' => array( 'any' ),
-		'posts_per_page' => '3',
-		'order' => 'DESC',
-		'orderby' => 'date',
-		'category__in'  	 => '24',
+		'post_type'              => array( 'revistaipcomunica' ),
+		'posts_per_page'         => 3,
 	);
 	$the_query = new WP_Query( $args ); 
 ?>
 
 <div class="row header">
-	<div class="col-md-2 seletor-holder">
+	<div class="col-md-2 seletor-holder tar">
 		<?php seletorPosts($the_query); ?>
 	</div>
 	<div class="col-md-10 titulo">
@@ -24,27 +21,51 @@
 			<div>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<div class="row">
-						<div class="col-md-2 metainfo">
+						<div class="col-md-2 metainfo tar">
 							<div class="data">
-								<strong>
-									<img src="<?php bloginfo('template_url'); ?>/imgs/icon-evento.png" /><br>
-									<?php the_date('d\<\b\r\/\>M\<\b\r\/\>Y','',''); ?>
-								</strong>
 							</div>
 						</div>
 						<div class="col-md-8 resumo">
-							<?php if ( get_field( 'imagem_de_busca') ): ?>
-								<a href="<?php the_permalink(); ?>">
-									<img src="<?php echo get_field( 'imagem_de_busca') ?>" alt="<?php the_title(); ?>" width="300" height="225">
+
+								<a href="<?php the_permalink(); ?>" class="green-link">
+
+									<?php if(!empty(has_post_thumbnail())) : ?>
+									<div class="imgLiquidFill imgLiquid" style="width:100%; height:200px;">
+									    <img src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' )[0]; ?>" />
+									</div>
+									<?php endif; ?>
+
+									<h2 class="green-chamada"><?php the_title(); ?></h2>
+
+									<?php if(!empty(get_the_tags())) : ?>
+									<div class="metainfo">
+										<ul class="list-inline tags">
+										<?php foreach(get_the_tags() as $tag) : ?>
+											<li>#<?php echo($tag->name); ?></li>
+										<?php endforeach; ?>
+										</ul>
+									</div>
+									<?php endif; ?>
+
+									<div class="local">
+										<p>
+										<?php if(!empty(get_field('ano_e_numero'))) : ?>
+											<i class="fa fa-2x fa-newspaper-o"></i> <?php echo get_field('ano_e_numero'); ?>
+										<?php endif; ?>
+										<?php if(!empty(get_field('local'))) : ?>
+											<i class="fa fa-2x fa-map-marker"></i> <?php echo get_field('local'); ?> 
+										<?php endif; ?>
+										<?php if(!empty(get_field('candidato'))) : ?>
+											<i class="fa fa-2x fa-user"></i> <?php echo get_field('candidato'); ?> 
+										<?php endif; ?>
+										<?php if(!empty(get_field('horario'))) : ?>
+											<i class="fa fa-2x fa-clock-o"></i> <?php echo get_field('horario'); ?> 
+										<?php endif; ?>
+										</p>
+									</div>
+
 								</a>
-							<?php endif; ?>
-							<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-							<div class="metainfo">
-								<ul class="list-inline tags">
-									<?php the_tags( '<li>#', '</li><li>#', '</li>' ); ?>
-								</ul>
-							</div>
-							<div class="local"><p><i class="fa fa-2x fa-newspaper-o"></i> Revista fapesp, maio 2015</p></div>
+
 						</div>
 					</div><!--  row  -->
 				</article>
@@ -52,8 +73,8 @@
 		<?php endwhile; // end of the loop. ?>
 	</div>
 <?php } else { ?>
-	<article>
-		<p>Nenhum evento recente.</p>
+	<article style="text-align: center;">
+		<p>Nenhum IP na mídia cadastrado.</p>
 	</article>
 <?php }
 	/* Restore original Post Data */

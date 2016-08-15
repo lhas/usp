@@ -172,26 +172,31 @@ h1.busca span{color: #b2deff;}
 .conteudo-posts .seletor{margin-top: 10px;}
 
 /* IP Comunica */
-.conteudo-ip-comunica #eventos, .conteudo-ip-comunica #noticias, .conteudo-ip-comunica #na-midia, .conteudo-ip-comunica #defesas{margin-top: 50px;} 
+.conteudo-ip-comunica #eventos, .conteudo-ip-comunica #noticias, .conteudo-ip-comunica #na-midia, .conteudo-ip-comunica #defesas{margin-top: 30px; margin-bottom: 30px;} 
 .conteudo-ip-comunica #noticias h2{font-size: 14px;}
 .conteudo-ip-comunica #noticias .linhafina{font-size: 11px;}
 .conteudo-ip-comunica .box-cinza{background-color: #fafafa;}
 .conteudo-ip-comunica .box-cinza .media-left{padding-right: 0;}
 .conteudo-ip-comunica #fale-com{margin-top: 50px; padding: 15px; font-size: 10px; line-height: 12px;}
 
-.conteudo-ip-comunica .seletor-modulos .header h1, .conteudo-ip-comunica .seletor-modulos article .local {color:#b2b2b2; text-transform: uppercase; font-size: 12px; margin-top: 0; }
+.conteudo-ip-comunica .seletor-modulos .header h1,
+.conteudo-ip-comunica .seletor-modulos article .local {
+	color:#b2b2b2; text-transform: uppercase; font-size: 14px; margin-top: 0; font-weight: bold;
+}
 .conteudo-ip-comunica .seletor-modulos .header .seletor, .conteudo-ip-comunica .seletor-modulos article .data {text-align: center;}
-.conteudo-ip-comunica .seletor-modulos article .local p .fa{margin-right: 15px;}
-.conteudo-ip-comunica .seletor-modulos article .local p .fa-clock-o{margin-left: 15px;}
+.conteudo-ip-comunica .seletor-modulos article .local p .fa{margin-left: 5px;margin-right: 5px; position: relative; top: 7px;}
+.conteudo-ip-comunica .seletor-modulos article .local p .fa-clock-o{margin-left: 5px;}
 .conteudo-ip-comunica .seletor-modulos article .metainfo{margin-top: 10px; margin-bottom: 20px;}
 .conteudo-ip-comunica .seletor-modulos article .data img{margin: 0 0 5px 0;}
 .conteudo-ip-comunica .seletor-modulos article h2{font-size: 18px; margin-top: 5px;}
 .conteudo-ip-comunica #sidebar {margin-top: 50px;}
-.conteudo-ip-comunica #sidebar article {margin-top: 25px;}
+.conteudo-ip-comunica #sidebar article {margin-top: 20px;}
 .conteudo-ip-comunica #sidebar .nav-tabs {border-bottom: 1px solid #ff8400; margin-bottom: 15px;}
 .conteudo-ip-comunica #sidebar .nav-tabs>li>a, .conteudo-ip-comunica #sidebar .nav-tabs>li>a:focus, .conteudo-ip-comunica #sidebar .nav-tabs>li>a:hover {color:#b2b2b2; padding: 0 15px 0 0; text-transform: uppercase; border: 0; background-color: transparent;}
-.conteudo-ip-comunica #sidebar .nav-tabs>li.active>a, .conteudo-ip-comunica #sidebar .nav-tabs>li.active>a:focus, .conteudo-ip-comunica #sidebar .nav-tabs>li.active>a:hover{border:0; color:#ff8400;}
-.conteudo-ip-comunica #sidebar .tab-content h2{font-size: 13	px; margin-top: 0;}
+.conteudo-ip-comunica #sidebar .nav-tabs>li.active>a, .conteudo-ip-comunica #sidebar .nav-tabs>li.active>a:focus, .conteudo-ip-comunica #sidebar .nav-tabs>li.active>a:hover{
+	border:0; color:#ff8400; font-weight: bold; padding-bottom: 3px;
+}
+.conteudo-ip-comunica #sidebar .tab-content h2{font-size: 13px; margin-top: 0;}
 .conteudo-ip-comunica #sidebar .data img{margin-right: 5px;}
 
 /* Footer */
@@ -328,6 +333,19 @@ footer a{color:#fff !important;}
 	line-height: 22px !important;
 	font-weight: 300;
 	color: #222;
+}
+.green-navtab li {
+	width: 50% !important;
+}
+.green-sidebar-link:hover {
+	opacity: 0.5;
+	text-decoration: none;
+}
+.tar ul {
+	text-align: right !important;
+}
+.tar strong {
+	float: right !important;
 }
 
 /* MOBILE */

@@ -91,7 +91,7 @@ function register_menus(){
 add_action( 'after_setup_theme', 'register_menus' );
 
 
-function seletorPosts($the_query, $name, $force_total = null){
+function seletorPosts($the_query, $name = null, $force_total = null){
 	$i = 0;
 	echo '<ul class="list-inline seletor">';
 
