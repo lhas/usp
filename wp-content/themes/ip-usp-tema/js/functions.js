@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+	// Imagens
+	$(".imgLiquidFill").imgLiquid();
+	
+	// Busca FAQ
+
 	var options = {
 	    valueNames: [ 'titulo', 'pergunta', 'resposta' ]
 	};
@@ -182,7 +187,7 @@ function seletorPost(id){
 		dynamicArrows: false,
 		autoSlide: true,
 		preloader:true,
-		autoSlideInterval: 3000,
+		autoSlideInterval: 6000,
 		preload: function(){
 			var self = this;
 			self.finalize();

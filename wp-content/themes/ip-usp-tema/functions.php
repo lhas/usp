@@ -1,5 +1,8 @@
 <?php
 
+setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf8', 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
+
 require_once( get_template_directory() . '/inc/wp_bootstrap_navwalker.php');
 require_once( get_template_directory() . '/inc/customizer.php' );
 
@@ -88,18 +91,27 @@ function register_menus(){
 add_action( 'after_setup_theme', 'register_menus' );
 
 
-function seletorPosts($the_query){
+function seletorPosts($the_query, $name, $force_total = null){
 	$i = 0;
 	echo '<ul class="list-inline seletor">';
-		while ( $the_query->have_posts() ) : $the_query->the_post(); 
-			if ($the_query->current_post == 0) {
-				echo '<li class="active"><a href="#" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
-			} else {
-				echo '<li><a href="#" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
+
+		if(empty($force_total)) {
+			while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				if ($the_query->current_post == 0) {
+					echo '<li class="active"><a href="javascript:void(0);" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
+				} else {
+					echo '<li><a href="javascript:void(0);" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
+				}
+			$i++;
+			endwhile;
+		} else {
+			echo '<li class="active"><a href="javascript:void(0);" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
+			for($i = 1; $i< $force_total; $i++) {
+				echo '<li><a href="javascript:void(0);" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
 			}
-		$i++;
-		endwhile;
+		}
 	echo '</ul>';
+
 }
 
 function set_custom_bg(){

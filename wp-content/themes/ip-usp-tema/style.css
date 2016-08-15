@@ -11,7 +11,7 @@ Text Domain: IP USP
 Tags: 
 */
 
-html, body { font-family: 'Trebuchet MS', sans-serif; font-weight: normal; color: #1a1a1a; line-height: 1.6em; }
+html, body { font-family: 'Source Sans Pro', sans-serif; font-weight: normal; color: #1a1a1a; line-height: 1.6em; }
 
 /* Header */
 header { background-color: #1c3c61; padding-top:25px; }
@@ -57,7 +57,7 @@ input.search-field { padding-top:8px; }
 .seletor li.active i{color: #ff8400;}
 .data {color:#ff8400; margin: 0; line-height: 12px; margin-bottom: 20px; font-weight: 900}
 .data img {margin-right: 10px;display: inline-block;}
-.metainfo .tags a, .metainfo .tags  { color:#2b5e96; margin:0 15px 0 0; }
+.metainfo .tags a, .metainfo .tags  { color:#2b5e96; font-size: 15px; margin:0 15px 0 0; }
 .ver-mais{margin-top: 25px;}
 .post-active{display:block;}
 
@@ -120,11 +120,14 @@ input.search-field { padding-top:8px; }
 .home .boxes .box.box-3 .header{background-color: #3777bf;}
 .home .boxes .box.box-4 .header{background-color: #326cad;}
 
-.home .headlines .header h1, .home .headlines article .local {color:#b2b2b2; text-transform: uppercase; font-size: 12px; margin-top: 0;}
-.home .headlines .header .seletor, .home .headlines article .data {text-align: center;}
-.home .headlines article .local span{margin: -27px 0 20px 30px;}
+.home .headlines .header h1 {color:#b2b2b2; text-transform: uppercase; font-size: 16px; margin-top: 3px; font-weight: bold;}
+.home .headlines article .local {color:#b2b2b2; text-transform: uppercase; font-size: 16px; margin-top: 0px; position: relative; top: -4px; margin-bottom: 10px; font-weight: bold;}
+.home .headlines .header .seletor {text-align: right;}
+.home .headlines article .data {text-align: center;}
+/*.home .headlines article .local span{margin: -27px 0 20px 30px;}*/
 .home .headlines article .metainfo{margin-top: 10px; margin-bottom: 20px;}
 .home .headlines article .data img{margin: 0 0 5px 0;}
+.home .headlines article .data strong{float: right;}
 .home .headlines article h2{font-size: 14px; margin-top: 5px; line-height: 1.4em}
 .home .headlines article h2 a{color: #4c4c4c;}
 /* Busca - Tag */
@@ -192,7 +195,7 @@ h1.busca span{color: #b2deff;}
 .conteudo-ip-comunica #sidebar .data img{margin-right: 5px;}
 
 /* Footer */
-footer {margin-top: 100px; background-color: #3169aa; border-top: 30px solid #1c3c61;}
+footer {background-color: #3169aa; border-top: 30px solid #1c3c61;}
 footer .barra-superior{margin-top:-30px; padding: 5px 15px; color: #fff; font-weight: 900;}
 footer .barra-inferior{padding: 15px 15px 55px 15px; color: #fff; font-weight: 400;}
 footer a{color:#fff !important;}
@@ -302,6 +305,29 @@ footer a{color:#fff !important;}
 .list .resposta {
 	margin-bottom: 20px;
 	padding-left: 30px;
+}
+.green-categoria {
+	font-weight: bold;
+	font-size: 14px;
+	color: #ff8400;
+	margin-top: 6px;
+	margin-bottom: 0px !important;
+	display: inline-block;
+	font-weight:600;
+}
+.green-link {
+	display: inline-block;
+	width: 100%;
+	text-decoration: none !important;
+}
+.green-link:hover {
+	opacity: 0.7;
+}
+.green-chamada {
+	font-size: 18px !important;
+	line-height: 22px !important;
+	font-weight: 300;
+	color: #222;
 }
 
 /* MOBILE */
