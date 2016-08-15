@@ -3,8 +3,6 @@
 	$args = array (
 		'post_type'              => 'biblioteca',
 		'posts_per_page'         => '3',
-		'order'                  => 'DESC',
-		'orderby'                => 'date',
 	);
 	$the_query = new WP_Query( $args ); 
 ?>
@@ -13,7 +11,7 @@
 		<div id="destaque-biblioteca-slider" class="liquid-slider">
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 				<div>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php if ($the_query->current_post != 0) { ?> style="display:none;" <?php } ?> >
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						<div class="row header">
 							<div class="col-md-10 col-md-offset-1 ">
 								<p class="categoria"><?php the_category(", "); ?></p>
@@ -34,7 +32,7 @@
 	?>
 	<div class="row seletor-holder">
 		<div class="col-md-2 col-md-offset-1">
-			<?php seletorPosts($the_query); ?>
+			<?php seletorPosts($the_query,null, null, true); ?>
 		</div>
 	</div>
 </div>

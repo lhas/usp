@@ -22,7 +22,6 @@
 				</div>
 				<div class="col-md-8">
 					<?php if ('noticias' == get_post_type() ) : ?>
-						<!-- <p class="autor">Por <?php the_author(); ?> para a Agência Universitária de Notícias</p> -->
 					<?php endif; ?>					
 					<ul class="list-inline tags">
 						<?php the_tags( '<li>#', '</li><li>#', '</li>' ); ?>

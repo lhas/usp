@@ -41,6 +41,6 @@ wp_reset_query();
 
 <div class="row seletor-holder">
 	<div class="col-md-2 col-md-offset-1">
-		<?php seletorPosts($the_query); ?>
+		<?php seletorPosts($the_query, null, null, true); ?>
 	</div>
 </div>

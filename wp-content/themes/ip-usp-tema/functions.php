@@ -91,16 +91,36 @@ function register_menus(){
 add_action( 'after_setup_theme', 'register_menus' );
 
 
-function seletorPosts($the_query, $name = null, $force_total = null){
+function seletorPosts($the_query, $name = null, $force_total = null, $change_crop = false){
 	$i = 0;
 	echo '<ul class="list-inline seletor">';
 
 		if(empty($force_total)) {
 			while ( $the_query->have_posts() ) : $the_query->the_post(); 
 				if ($the_query->current_post == 0) {
-					echo '<li class="active"><a href="javascript:void(0);" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
+
+					if(!$change_crop) {
+						echo '<li class="active">';
+					} else {
+						echo '<li class="active changeCrop">';
+					}
+
+					echo '<a href="javascript:void(0);" data-seletor="'.$i.'">';
+					echo '<i class="fa fa-circle"></i>';
+					echo '</a>';
+					echo '</li>';
 				} else {
-					echo '<li><a href="javascript:void(0);" data-seletor="'.$i.'"><i class="fa fa-circle"></i></a></li>';
+
+					if(!$change_crop) {
+						echo '<li class="">';
+					} else {
+						echo '<li class="changeCrop">';
+					}
+					
+					echo '<a href="javascript:void(0);" data-seletor="'.$i.'">';
+					echo '<i class="fa fa-circle"></i>';
+					echo '</a>';
+					echo '</li>';
 				}
 			$i++;
 			endwhile;
@@ -114,10 +134,14 @@ function seletorPosts($the_query, $name = null, $force_total = null){
 
 }
 
-function set_custom_bg(){
-	$page_id = get_queried_object_id();
+function set_custom_bg($page_id = null){
+
+	if(empty($page_id)) {
+		$page_id = get_queried_object_id();
+	}
+
 	if ( has_post_thumbnail( $page_id ) ) :
-	    $image_array = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'large' );
+	    $image_array = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'full' );
 	    $image = $image_array[0];
 	else :
 	    $image = get_template_directory_uri() . '/imgs/bg-teste.jpg';

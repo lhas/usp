@@ -218,9 +218,76 @@
 					<?php endif ?>					
 				</div>
 			<?php } else {?>
-				<div class="crop">
-					<img class="img-fundo clip" src="<?php echo set_custom_bg(); ?>" />			
-				</div>
+
+				<!-- Se for a página de IP Comunica -->
+				<?php if(is_page(178)) : ?>
+
+					<?php 
+						wp_reset_query();
+						$args = array (
+							'post_type'              => array('noticia'),
+							'posts_per_page'         => '3',
+							'order'                  => 'DESC',
+							'orderby'                => 'date',
+							'category__not_in'  	 => '-255,-24',
+						);
+						$the_query = new WP_Query( $args ); 
+					?>
+
+					<div class="crop" id="crop-crop">
+
+						<div class="liquid-slider" id="crop-slider">
+
+							<!-- Iterar todos os posts em destaque dele -->
+							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+								<div>
+									<img class="img-fundo clip" src="<?php echo set_custom_bg($post->ID); ?>" />	
+								</div>
+
+							<?php endwhile; ?>
+
+						</div> <!-- #crop-slider -->
+			
+					</div> <!-- #crop-crop -->
+
+				<?php endif; ?>
+				<!-- Fim IP Comunica -->
+
+				<!-- Se for a página de Biblioteca -->
+				<?php if(is_page(112)) : ?>
+
+					<?php 
+						wp_reset_query();
+						$args = array (
+							'post_type'              => array('biblioteca'),
+							'posts_per_page'         => '3',
+							'order'                  => 'DESC',
+							'orderby'                => 'date',
+						);
+						$the_query = new WP_Query( $args ); 
+					?>
+
+					<div class="crop" id="crop-crop">
+
+						<div class="liquid-slider" id="crop-slider">
+
+							<!-- Iterar todos os posts em destaque dele -->
+							<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+								<div>
+									<img class="img-fundo clip" src="<?php echo set_custom_bg($post->ID); ?>" />	
+								</div>
+
+							<?php endwhile; ?>
+
+						</div> <!-- #crop-slider -->
+			
+					</div> <!-- #crop-crop -->
+
+				<?php endif; ?>
+				<!-- Fim Biblioteca -->
+
 			<?php }?>
 		<?php } ?>
 

@@ -1,7 +1,19 @@
 $(document).ready(function(){
 
+	// changeCrop
+	$(document).on('click', '.changeCrop', function() {
+		// descobrir qual slide desejado
+		var i = $(this).find('a').data('seletor');
+		console.log(i);
+		var api = $.data( $('#crop-slider')[0], 'liquidSlider');
+		api.setNextPanel(i);
+		api.updateClass($(this));
+	});
+	// Fim changeCrop
+
 	// Imagens
 	$(".imgLiquidFill").imgLiquid();
+	// Fim Imagens
 	
 	// Busca FAQ
 
@@ -14,6 +26,8 @@ $(document).ready(function(){
 	$(".pergunta").on("click", function() {
 		$(this).parent().find('.resposta').stop().fadeToggle('slow');
 	});
+
+	// Fim Busca FAQ
 
 	// Calendário
 
@@ -73,6 +87,8 @@ $(document).ready(function(){
 	var anoAtual = dataAtual.getFullYear();
 
 	filtrarEventos(mesAtual, anoAtual);
+
+	// Fim Calendário
 	
 	$(".mega-dropdown").find("ul.dropdown-menu").addClass('mega-dropdown-menu row')
 	$(".mega-dropdown").click(function(){
@@ -112,6 +128,7 @@ $(document).ready(function(){
 	seletorPost("#destaque-ip-comunica");
 	seletorPost("#defesas");
 	seletorPost("#na-midia");
+	seletorPost("#crop-crop");
 
 	seletorPost("#destaque-biblioteca")
 
