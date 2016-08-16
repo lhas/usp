@@ -19,17 +19,13 @@
 				<?php if( get_post_type() == 'noticia' ): ?>
 					<div class="data"><img src="<?php bloginfo('template_url'); ?>/imgs/icon-noticia.png" /> <?php the_date('d M Y','',''); ?></div>
 				<?php elseif( get_post_type() == 'evento' ): ?>
-					<div class="data"><img src="<?php bloginfo('template_url'); ?>/imgs/icon-evento.png" /> <?php the_date('d M Y','',''); ?></div>
+					<div class="data"><img src="<?php bloginfo('template_url'); ?>/imgs/icon-evento.png" /> <?php the_field('data'); ?></div>
 				<?php endif ?>
 
 				<div class="post-type">
 					<?php 
 						echo get_post_type_object( get_post_type( ) )->labels->singular_name; 
 					?>
-				</div>
-				
-				<div class="text-center ver-mais">
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-laranja">Ver Mais</a>
 				</div>
 
 			</div>

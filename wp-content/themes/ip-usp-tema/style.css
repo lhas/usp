@@ -347,6 +347,9 @@ footer a{color:#fff !important;}
 .tar strong {
 	float: right !important;
 }
+.ver-mais {
+	margin-bottom: 50px;
+}
 
 /* MOBILE */
 @media only screen and (min-width:0px) and (max-width:767px) {

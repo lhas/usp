@@ -183,7 +183,18 @@
               <?php } else if(is_post_type_archive('evento')) { ?>
                 <h1>Eventos</h1>	
               <?php } else { ?>
-                <h1><?php the_title(); ?></h1>								
+                <h1>
+                  <?php 
+                    // Recuperar menu relacionado
+                    $menuRelacionado = get_field_object('menu');
+
+                    if(!empty($menuRelacionado['value']->ID)) :
+                      echo $menuRelacionado['value']->post_title;
+                    else:
+                      echo post_type_archive_title( '', false );
+                    endif;
+                  ?>
+                </h1>
               <?php } ?>
             </div>
             
