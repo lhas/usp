@@ -70,7 +70,6 @@
 									$block_menus = new WP_Query($args);
 
 									while ( $block_menus->have_posts() ) { $block_menus->the_post(); ?>
-										<?php if( have_rows('componentes') ): ?>
 											<?php while ( have_rows('componentes') ) : the_row(); ?>
 
 									<li class="mega-dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children dropdown">
@@ -83,21 +82,17 @@
 												<?php if( get_row_layout() == 'item' ): ?>
 													
 													<?php while ( have_rows('colunas') ) : the_row(); ?>
-													<li class="col-sm-3">
+													<li class="col-sm-<?php echo $coluna; ?>">
 														<ul>
 															<li role="presentation" class="dropdown-header"> <?php the_sub_field('titulo'); ?> </li>
 															<li role="presentation" class="divider"></li>
 															
-															<?php if( have_rows('sub-itens') ): ?>
-																<?php while ( have_rows('sub-itens') ) : the_row(); ?>
-																	<li class="menu-item"><a title="<?php the_sub_field('titulo'); ?>" href="<?php the_sub_field('url'); ?>"><?php the_sub_field('titulo'); ?></a></li>
-																<?php endwhile; ?>
-															<?php endif; ?>
+															<?php while ( have_rows('sub-itens') ) : the_row(); ?>
+																<li class="menu-item"><a title="<?php the_sub_field('titulo'); ?>" href="<?php the_sub_field('url'); ?>"><?php the_sub_field('titulo'); ?></a></li>
+															<?php endwhile; ?>
 														</ul>
 													</li>
 													<?php endwhile; ?>
-													
-												<?php endif; ?>
 
 
 										</ul>
@@ -287,6 +282,22 @@
 
 				<?php endif; ?>
 				<!-- Fim Biblioteca -->
+
+				<!-- Se for Outras Páginas -->
+				<?php if(!is_page(112) && !is_page(178) ) : ?>
+					<div class="crop">
+
+						<div class="liquid-slider" id="crop-slider">
+
+								<div>
+									<img class="img-fundo clip" src="<?php echo set_custom_bg(); ?>" />	
+								</div>
+
+						</div> <!-- #crop-slider -->
+			
+					</div> <!-- #crop-crop -->
+				<?php endif; ?>
+				<!-- Fim Outras Páginas -->
 
 			<?php }?>
 		<?php } ?>
