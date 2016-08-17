@@ -164,6 +164,64 @@
       <?php if(!is_front_page()){ ?>
       <div class="nav-segundo-nivel">
         <div class="container">
+
+        <?php
+        $postTypeAtual = get_post_type();
+        $postTypesExistentes = get_post_types();
+        $menus = get_posts(array(
+          'post_type' => 'menus',
+          'posts_per_page' => 9999
+        ));
+        $menuParaPostType = false;
+        
+        foreach($menus as $menu) {
+          $tiposDePostPermitidosPeloMenu = get_field('tipos_de_post', $menu->ID);
+
+          if(!empty($tiposDePostPermitidosPeloMenu)) {
+            if(in_array($postTypeAtual, $tiposDePostPermitidosPeloMenu)) {
+              $menuParaPostType = $menu;
+            }
+          }
+        } // end foreach $menu
+
+        if(!empty($menuParaPostType)) :
+
+        ?>
+          <div class="row">
+
+            <div class="col-sm-4">
+              <h1><?php echo $menuParaPostType->post_title; ?></h1>
+            </div> <!-- .col-sm-4 -->
+
+            <div class="col-sm-8">
+
+              <nav>
+              
+                <div id="menu-home" class="collapse navbar-collapse">
+                <ul id="menu-biblioteca" class="nav navbar-nav">
+                  <?php
+                  // Recuperar menu relacionado
+                  $subMenus = get_field('submenu', $menuParaPostType->ID);
+
+                    foreach($subMenus as $menu) : ?>
+                    <li>
+                      <a href="<?php echo $menu['link']; ?>"><?php echo $menu['titulo']; ?></a>
+                    </li>
+                    <?php
+
+                    endforeach;
+
+                  ?>
+                </ul> <!-- #menu-biblioteca -->
+                </div> <!-- #menu-home -->
+
+              </nav>
+
+            </div> <!-- .col-sm-8 -->
+
+          </div> <!-- .row -->
+          <?php else: ?>
+
           <div class="row">
 
             <!-- Título -->
@@ -230,6 +288,8 @@
 
             </div>
           </div><!--	row	-->
+          
+          <?php endif; ?>
         </div><!--	container	-->
       </div><!--	nav	-->
       <?php } ?>
