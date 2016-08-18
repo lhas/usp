@@ -1,5 +1,21 @@
 $(document).ready(function(){
 
+	// letras
+	$(document).on('click', '#letras a', function() {
+		var letraAtual = $(this).html();
+
+		$('#letras a').removeClass('atual');
+		$(this).addClass('atual');
+
+		if(letraAtual == "Todas") {
+			$('.revista').stop().fadeIn();
+		} else {
+			$('.revista').stop().fadeOut();
+			$('.revista[data-letra="' + letraAtual + '"]').stop().fadeIn();
+		}
+	});
+	// fim letras
+
 	// changeCrop
 	$(document).on('click', '.changeCrop', function() {
 		// descobrir qual slide desejado

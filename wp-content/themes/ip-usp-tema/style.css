@@ -350,6 +350,39 @@ footer a{color:#fff !important;}
 .ver-mais {
 	margin-bottom: 50px;
 }
+#letras {
+	display: inline-block;
+	border-bottom: 1px solid #ff8400;
+}
+#letras a {
+	font-size: 16px;
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	color: #CCC;
+	margin-right: 10px;
+	text-decoration: none;
+}
+#letras a.atual {
+	color: #ff8400;
+	font-size: 18px;
+}
+#letras a:hover {
+	opacity: 0.7;
+	color: #ff8400;
+}
+#alfabeto {
+	display: inline-block;
+	width: 100%;
+	height: 500px;
+	overflow-y: visible;
+	border: 1px solid #ff8400;
+	padding: 20px;
+	margin-top: 40px;
+}
+.revista {
+	height: 100px;
+}
 
 /* MOBILE */
 @media only screen and (min-width:0px) and (max-width:767px) {

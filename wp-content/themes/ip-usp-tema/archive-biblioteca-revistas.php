@@ -7,63 +7,48 @@
 
 get_header(); ?>
 	
-	<div class="container conteudo conteudo-archive">
-		<div class="resultados">
-    
-      <?php if ( have_posts() ) { ?>
+	<div class="green-espacamento container conteudo conteudo-archive">
 	
-	<?php while ( have_posts() ) : the_post(); ?>
-		
-		<article <?php post_class(array("item")); ?> style="opacity: 0;">
-			<?php if ( get_field( 'imagem_de_busca') ): ?>
-			<div class="text-center">
-				<a href="<?php the_permalink(); ?>">
-					<img src="<?php echo get_field( 'imagem_de_busca') ?>" alt="<?php the_title(); ?>" width="300" height="225">
-				</a>
+			<div>
+				<article id="post-">
+					<div class="row header">
+						<div class="col-md-10 col-md-offset-1 ">
+							<p class="categoria"><a href="#">A Biblioteca</a></p>
+							<h1><a href="#">Revistas Eletrônicas</a></h1>
+
+							<nav id="letras">
+								<a href="#" class="atual">Todas</a>
+								<?php foreach(range('A', 'Z') as $letra) { ?>
+								<a href="#"><?php echo $letra; ?></a>
+								<?php } ?>
+							</nav> <!-- #letras -->
+
+						</div>
+					</div>
+				</article>
 			</div>
-			<?php endif ?>
-			<div class="content">
-				<?php if ( get_post_type() != 'evento' ): ?>
-					<p class="categoria"><?php the_category(", "); ?></p>
-				<?php endif; ?>
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-				<?php if( get_post_type() == 'noticia' ): ?>
-					<div class="data"><img src="<?php bloginfo('template_url'); ?>/imgs/icon-noticia.png" /> <?php the_date('d M Y','',''); ?></div>
-				<?php elseif( get_post_type() == 'evento' ): ?>
-					<div class="data"><img src="<?php bloginfo('template_url'); ?>/imgs/icon-evento.png" /> <?php the_date('d M Y','',''); ?></div>
-				<?php endif ?>
-
-				<div class="post-type">
-					<?php 
-						echo get_post_type_object( get_post_type( ) )->labels->singular_name; 
-					?>
-				</div>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
 				
-				<div class="text-center ver-mais">
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-laranja">Ver Mais</a>
+					<div id="alfabeto">
+						<div class="row">
+							<?php
+							$args = array( 'post_type' => 'biblioteca-revistas', 'posts_per_page' => -1, 'orderby'=> 'title', 'order' => 'ASC' );
+							$glossaryposts = get_posts( $args ); 
+							?>
+							<?php foreach( $glossaryposts as $post ) :	setup_postdata($post); ?>
+							<div class="revista col-xs-6" data-letra="<?php $tmp = str_split(get_the_title()); echo $tmp[0]; ?>">
+								<strong style="font-size: 16px;"><?php the_title(); ?></strong>
+								<?php the_content(); ?>
+							</div>
+							<?php endforeach; ?>
+						</div>
+					</div> <!-- #alfabeto -->
+
 				</div>
-
 			</div>
-		</article>
 
-	<?php endwhile; // end of the loop. ?>
-	
-	
-<?php } else { ?>
-	<article style="width: 100%; height: 300px; float: left;">
-		<h2 style="font-size: 20px;">Infelizmente não encontramos nenhum resultado para <strong><?php echo $_GET['s']; ?></strong></h2>
-		<br>
-		<p>
-		Procure por outros termos para encontrar o que está buscando. <br>
-		Obrigado.</p>
-	</article>
-<?php }
-	/* Restore original Post Data */
-	wp_reset_query();
-?>
-
-		</div>
 	</div>
 
 <?php get_footer(); ?>
