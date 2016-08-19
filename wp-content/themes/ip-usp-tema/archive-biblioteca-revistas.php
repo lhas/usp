@@ -17,9 +17,9 @@ get_header(); ?>
 							<h1><a href="#">Revistas Eletrônicas</a></h1>
 
 							<nav id="letras">
-								<a href="#" class="atual">Todas</a>
+								<a href="javascript:void(0);" class="atual">Todas</a>
 								<?php foreach(range('A', 'Z') as $letra) { ?>
-								<a href="#"><?php echo $letra; ?></a>
+								<a href="javascript:void(0);"><?php echo $letra; ?></a>
 								<?php } ?>
 							</nav> <!-- #letras -->
 

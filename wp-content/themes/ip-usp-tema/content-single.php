@@ -25,7 +25,6 @@
 		
 	<?php endwhile; // end of the loop. ?>
 
-	<?php get_template_part( 'content', 'single-relacionados' ); ?>
 	
 <?php } else { ?>
 	<article>

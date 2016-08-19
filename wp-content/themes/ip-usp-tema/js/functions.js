@@ -1,3 +1,7 @@
+angular.module('usp', []);
+
+angular.module('usp').filter('unsafe', function($sce) { return $sce.trustAsHtml; });
+
 $(document).ready(function(){
 
 	// letras
@@ -33,13 +37,7 @@ $(document).ready(function(){
 	
 	// Busca FAQ
 
-	var options = {
-	    valueNames: [ 'titulo', 'pergunta', 'resposta' ]
-	};
-
-	var hackerList = new List('faq-list', options);
-
-	$(".pergunta").on("click", function() {
+	$(document).on("click", ".pergunta", function() {
 		$(this).parent().find('.resposta').stop().fadeToggle('slow');
 	});
 
