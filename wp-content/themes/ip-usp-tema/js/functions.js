@@ -33,6 +33,9 @@ $(document).ready(function(){
 
 	// Imagens
 	$(".imgLiquidFill").imgLiquid();
+	$(".imgLiquidFill2").imgLiquid({
+		fill: false
+	});
 	// Fim Imagens
 	
 	// Busca FAQ
@@ -215,6 +218,7 @@ function changeCss(className, classValue) {
 
 function seletorPost(id){
 	$(id + ' .liquid-slider').liquidSlider({
+		slideEaseFunction: 'dsadada',
 		dynamicArrows: false,
 		autoSlide: true,
 		preloader:true,

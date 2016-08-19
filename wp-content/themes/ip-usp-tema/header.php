@@ -173,12 +173,17 @@
           'posts_per_page' => 9999
         ));
         $menuParaPostType = false;
+        $menuParaPaginaAtual = get_field_object('menu');
+
+        if(!empty($menuParaPaginaAtual)) {
+          $menuParaPostType = $menuParaPaginaAtual['value'];
+        }
         
         foreach($menus as $menu) {
           $tiposDePostPermitidosPeloMenu = get_field('tipos_de_post', $menu->ID);
 
           if(!empty($tiposDePostPermitidosPeloMenu)) {
-            if(in_array($postTypeAtual, $tiposDePostPermitidosPeloMenu)) {
+            if(in_array($postTypeAtual, $tiposDePostPermitidosPeloMenu) && $menuParaPostType == false) {
               $menuParaPostType = $menu;
             }
           }
@@ -190,7 +195,10 @@
           <div class="row">
 
             <div class="col-sm-4">
-              <h1><?php echo $menuParaPostType->post_title; ?></h1>
+              <?php
+                $titulo = (get_field('imagem', $menuParaPostType->ID)) ? '<img src="' . get_field('imagem', $menuParaPostType->ID) . '" />' : $menuParaPostType->post_title;
+              ?>
+              <h1><?php echo $titulo; ?></h1>
             </div> <!-- .col-sm-4 -->
 
             <div class="col-sm-8">
@@ -201,17 +209,29 @@
                 <ul id="menu-biblioteca" class="nav navbar-nav">
                   <?php
                   // Recuperar menu relacionado
-                  $subMenus = get_field('submenu', $menuParaPostType->ID);
 
-                    foreach($subMenus as $menu) : ?>
+                    while(have_rows('submenu', $menuParaPostType->ID)) : the_row(); ?>
                     <li>
-                      <a href="<?php echo $menu['link']; ?>"><?php echo $menu['titulo']; ?></a>
+                      <div class="dropdown">
+
+                      <?php
+                      
+                      $subitens = get_sub_field('sub-itens');
+                      ?>
+                        <?php if(empty($subitens)) : ?>
+                        <a href="<?php echo get_sub_field('link'); ?>"><?php echo get_sub_field('titulo'); ?></a>
+                        <?php else : ?>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><?php echo get_sub_field('titulo'); ?> <span class="caret"></span></a>
+                        
+                        <ul class="dropdown-menu">
+                          <?php foreach($subitens as $subitem) : ?>
+                          <li><a href="<?php echo $subitem['link']; ?>"><?php echo $subitem['titulo']; ?></a></li>
+                          <?php endforeach; ?>
+                        </ul>
+                        <?php endif; ?>
+                      </div>
                     </li>
-                    <?php
-
-                    endforeach;
-
-                  ?>
+                    <?php endwhile; ?>
                 </ul> <!-- #menu-biblioteca -->
                 </div> <!-- #menu-home -->
 
