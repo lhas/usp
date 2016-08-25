@@ -78,9 +78,8 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/inc/css/liquid-slider.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/inc/css/font-awesome.min.css">
 
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -328,7 +327,7 @@
           ?>
           <?php if ( $the_query->have_posts() ): ?>
             <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-              <img class="img-fundo" style="position: fixed;" src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $the_ID ), 'large' )[0]; ?>" />
+              <img class="img-fundo" src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $the_ID ), 'large' )[0]; ?>" />
             <?php endwhile; // end of the loop. ?>
           <?php else: ?>
             <img class="img-fundo" src="<?php bloginfo('template_url'); ?>/imgs/bg-home.png" />

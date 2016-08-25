@@ -1,8 +1,8 @@
 <?php if ( have_posts() ) { ?>
 	
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php $i = 0; while ( have_posts() ) : the_post(); $i++; ?>
 		
-		<article <?php post_class(array("item")); ?> style="opacity: 0;">
+		<article <?php post_class(array("item")); ?> data-contagem="<?php echo $i; ?>" style="opacity: 0; <?php if($i > 10) : ?>display: none;<?php endif; ?>">
 			<?php if ( get_field( 'imagem_de_busca') ): ?>
 			<div class="text-center">
 				<a href="<?php the_permalink(); ?>">

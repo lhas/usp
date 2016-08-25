@@ -1,10 +1,17 @@
 <?php 
 	wp_reset_query();
 	$args = array (
-		'post_type'              => 'biblioteca-destaques',
+		'post_type'              => 'biblioteca',
 		'posts_per_page'         => '3',
+		'meta_query' => array(
+			array(
+				'key' => 'destaque',
+				'value' => '1',
+				'compare' => '=='
+			)
+		)
 	);
-	$the_query = new WP_Query( $args ); 
+	$the_query = new WP_Query( $args );
 ?>
 <div id="destaque-biblioteca">	
 	<?php if ( $the_query->have_posts() ) { ?>
@@ -15,7 +22,12 @@
 						<div class="row header">
 							<div class="col-md-10 col-md-offset-1 ">
 								<p class="categoria"><?php the_category(", "); ?></p>
-								<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+								
+									<?php if(get_field('link_externo')) : ?>
+										<h1><a href="<?php echo get_field('link_externo'); ?>" target="_blank"><?php the_title(); ?></a></h1>
+									<?php else: ?>
+										<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+									<?php endif; ?>
 							</div>
 						</div>
 					</article>

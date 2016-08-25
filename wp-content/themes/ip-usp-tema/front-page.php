@@ -11,7 +11,7 @@ get_header(); ?>
 		<?php get_template_part( 'content', 'front-page-boxes' ); ?>
 	</div><!--  container  -->
 	
-	<div style=" background: #FFF; padding-top: 40px; min-height: 350px;">
+	<div style=" background: #FFF; min-height: 300px;">
 	<div class="container conteudo conteudo-home" style="margin-top: 0px;  padding-top: 0px;">
 		<div class="row headlines">
 			<div class="col-md-6 noticias" id="noticias">
