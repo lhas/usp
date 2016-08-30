@@ -25,6 +25,7 @@
         // Inicializa a coluna atual
         $coluna = array(
           'titulo' => get_sub_field('titulo'),
+          'link_coluna' => get_sub_field('link_coluna'),
           'links' => array()
         );
 
@@ -33,6 +34,7 @@
           $link = array(
             'titulo' => get_sub_field('titulo'),
             'url' => get_sub_field('url'),
+            'abrir_em_nova_janela' => get_sub_field('abrir_em_nova_janela'),
           );
 
           // Relaciona link a coluna
@@ -78,7 +80,7 @@
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/inc/css/liquid-slider.css">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/inc/css/font-awesome.min.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -136,11 +138,17 @@
                           <?php foreach($menu['colunas'] as $coluna) : ?>
                           <li class="col-sm-<?php echo $menu['tamanho']; ?>">
                             <ul>
+
+                              <?php if(!empty($coluna['link_coluna'])) : ?>
+                              <li role="presentation" class="dropdown-header"> <a href="<?php echo $coluna['link_coluna']; ?>" style="font-weight: 300 !important;"><?php echo $coluna['titulo']; ?></a> </li>
+                              <?php else: ?>
                               <li role="presentation" class="dropdown-header"> <?php echo $coluna['titulo']; ?> </li>
+                              <?php endif; ?>
+
                               <li role="presentation" class="divider"></li>
                               
                               <?php foreach($coluna['links'] as $link) : ?>
-                                <li class="menu-item"><a title="<?php echo $link['titulo']; ?>" href="<?php echo $link['url']; ?>"><?php echo $link['titulo']; ?></a></li>
+                                <li class="menu-item"><a title="<?php echo $link['titulo']; ?>" href="<?php echo $link['url']; ?>" <?php if($link['abrir_em_nova_janela']) : ?>target="_blank"<?php endif; ?>><?php echo $link['titulo']; ?></a></li>
                               <?php endforeach; ?>
 
                             </ul>
@@ -160,7 +168,20 @@
           </div><!-- busca e menu -->
         </div><!-- row -->
       </div>
-      <?php if(!is_front_page()){ ?>
+      <?php if(is_search()) : ?>
+      <div class="nav-segundo-nivel" style="padding: 40px 0 0;">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12">
+            <h1 style="text-transform: inherit !important; font-size: 2.1em; margin-bottom: 20px;">Busca por <span style="color: rgba(255, 255, 255, 0.5); font-weight: 600;"><?php echo get_search_query(); ?></span></h1>
+            </div>
+
+            </div>
+        </div>
+        </div>
+      <?php endif; ?>
+      <?php if(!is_front_page() && !is_search()){ ?>
       <div class="nav-segundo-nivel">
         <div class="container">
 
@@ -204,7 +225,6 @@
 
               <nav>
               
-                <div id="menu-home" class="collapse navbar-collapse">
                 <ul id="menu-biblioteca" class="nav navbar-nav">
                   <?php
                   // Recuperar menu relacionado
@@ -218,13 +238,13 @@
                       $subitens = get_sub_field('sub-itens');
                       ?>
                         <?php if(empty($subitens)) : ?>
-                        <a href="<?php echo get_sub_field('link'); ?>"><?php echo get_sub_field('titulo'); ?></a>
+                        <a href="<?php echo get_sub_field('link'); ?>" <?php if(get_sub_field('abrir_em_nova_janela')) : ?>target="_blank"<?php endif; ?>><?php echo get_sub_field('titulo'); ?></a>
                         <?php else : ?>
                         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><?php echo get_sub_field('titulo'); ?> <span class="caret"></span></a>
                         
                         <ul class="dropdown-menu">
                           <?php foreach($subitens as $subitem) : ?>
-                          <li><a href="<?php echo $subitem['link']; ?>"><?php echo $subitem['titulo']; ?></a></li>
+                          <li><a href="<?php echo $subitem['link']; ?>" <?php if($subitem['abrir_em_nova_janela']) : ?>target="_blank"<?php endif; ?>><?php echo $subitem['titulo']; ?></a></li>
                           <?php endforeach; ?>
                         </ul>
                         <?php endif; ?>
@@ -232,7 +252,6 @@
                     </li>
                     <?php endwhile; ?>
                 </ul> <!-- #menu-biblioteca -->
-                </div> <!-- #menu-home -->
 
               </nav>
 
@@ -280,7 +299,6 @@
 
             <nav>
 
-              <div id="menu-home" class="collapse navbar-collapse">
                 <ul id="menu-biblioteca" class="nav navbar-nav">
                   <?php
                   // Recuperar menu relacionado
@@ -301,7 +319,6 @@
                   ?>
                 </ul> <!-- #menu-biblioteca -->
               
-              </div> <!-- #menu-home -->
 
               </nav>
 
@@ -352,6 +369,13 @@
 
           <div class="crop" id="crop-crop">
 
+          <svg width="0" height="0">
+  <clipPath id="clipPolygon">
+    <polygon points="40 385,893 217,702 113,16 -33">
+    </polygon>
+  </clipPath>
+</svg>
+
             <div class="liquid-slider" id="crop-slider">
 
               <!-- Iterar todos os posts em destaque dele -->
@@ -386,6 +410,13 @@
 
           <div class="crop" id="crop-crop">
 
+          <svg width="0" height="0">
+  <clipPath id="clipPolygon">
+    <polygon points="40 385,893 217,702 113,16 -33">
+    </polygon>
+  </clipPath>
+</svg>
+
             <div class="liquid-slider" id="crop-slider">
 
               <!-- Iterar todos os posts em destaque dele -->
@@ -407,6 +438,13 @@
         <!-- Se for Outras Páginas -->
         <?php if(!is_page(112) && !is_page(178) ) : ?>
           <div class="crop">
+
+          <svg width="0" height="0">
+  <clipPath id="clipPolygon">
+    <polygon points="40 385,893 217,702 113,16 -33">
+    </polygon>
+  </clipPath>
+</svg>
 
             <div class="liquid-slider" id="crop-slider">
 

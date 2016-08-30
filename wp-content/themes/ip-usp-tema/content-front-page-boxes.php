@@ -9,11 +9,17 @@
 			</h1>
 		</div>
 		<div class="links hidden-sm hidden-xs">
+		<?php
+			$postType = get_post(7551);
+		?>
 			<ul class="list-unstyled">
-				<li><a href="#">Graduação</a></li>
-				<li><a href="#">Pós-graduação</a></li>
-				<li><a href="#">Pesquisa</a></li>
-				<li><a href="#">Convênios e Intercâmbios</a></li>
+				<?php
+				$menusPost = get_field('links', $postType->ID);
+
+				foreach($menusPost as $menu) :
+				?>
+				<li><a href="<?php echo $menu['link']; ?>"><?php echo $menu['titulo_do_link']; ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	</div>
@@ -27,9 +33,17 @@
 			</h1>
 		</div>
 		<div class="links hidden-sm hidden-xs">
+		<?php
+			$postType = get_post(7554);
+		?>
 			<ul class="list-unstyled">
-				<li><a href="#">Atendimento à comunidade</a></li>
-				<li><a href="#">Biblioteca</a></li>
+				<?php
+				$menusPost = get_field('links', $postType->ID);
+
+				foreach($menusPost as $menu) :
+				?>
+				<li><a href="<?php echo $menu['link']; ?>"><?php echo $menu['titulo_do_link']; ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	</div>
@@ -42,12 +56,19 @@
 				EVENTOS
 			</h1>
 		</div>
+		
 		<div class="links hidden-sm hidden-xs">
+		<?php
+			$postType = get_post(7553);
+		?>
 			<ul class="list-unstyled">
-				<li><a href="<?php echo get_post_type_archive_link('evento'); ?>">Eventos</a></li>
-				<li><a href="#">Notícias</a></li>
-				<li><a href="#">Publicações</a></li>
-				<li><a href="#">Concursos e Licitações</a></li>
+				<?php
+				$menusPost = get_field('links', $postType->ID);
+
+				foreach($menusPost as $menu) :
+				?>
+				<li><a href="<?php echo $menu['link']; ?>"><?php echo $menu['titulo_do_link']; ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	</div>
@@ -60,12 +81,19 @@
 				INSTITUTO
 			</h1>
 		</div>
+		
 		<div class="links hidden-sm hidden-xs">
+		<?php
+			$postType = get_post(7552);
+		?>
 			<ul class="list-unstyled">
-				<li><a href="#">O Instituto de Psicologia</a></li>
-				<li><a href="#">Pessoas</a></li>
-				<li><a href="#">Memória IP</a></li>
-				<li><a href="#">Mapa do Site</a></li>
+				<?php
+				$menusPost = get_field('links', $postType->ID);
+
+				foreach($menusPost as $menu) :
+				?>
+				<li><a href="<?php echo $menu['link']; ?>"><?php echo $menu['titulo_do_link']; ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	</div>

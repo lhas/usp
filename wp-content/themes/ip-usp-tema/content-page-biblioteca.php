@@ -1,17 +1,12 @@
 <?php 
 	wp_reset_query();
 	$args = array (
-		'post_type'              => 'biblioteca',
+		'post_type'              => 'biblioteca-destaques',
 		'posts_per_page'         => '3',
-		'meta_query' => array(
-			array(
-				'key' => 'destaque',
-				'value' => '1',
-				'compare' => '=='
-			)
-		)
 	);
 	$the_query = new WP_Query( $args );
+
+	if(is_single(112)) {
 ?>
 <div id="destaque-biblioteca">	
 	<?php if ( $the_query->have_posts() ) { ?>
@@ -48,6 +43,29 @@
 		</div>
 	</div>
 </div>
+<?php 
+	} else { ?>
+	
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<div class="header row">
+				<div class="col-md-10 col-md-offset-1">
+					<p class="categoria"><?php the_category(", "); ?></p>
+					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+					<!-- <p class="linhafina"><?php the_excerpt(); ?></p> -->
+				</div>
+			</div><!--  row  -->
+			<?php if(!empty(get_the_tags())) : ?>
+			<div class="row metainfo">
+				<div class="col-md-10 col-md-offset-1">
+					<ul class="list-inline tags">
+						<?php the_tags( '<li>#', '</li><li>#', '</li>' ); ?>
+					</ul>
+				</div>
+			</div><!--  row  -->
+			<?php endif; ?>
+		</article>
+
+	<?php } ?>
 
 <div class="row content biblioteca">
 	<div class="col-md-10 col-md-offset-1">
@@ -57,6 +75,9 @@
 		<?php the_content(); ?>
 
 	<?php endwhile; ?>
+
+	<?php 
+	if(is_single(112)) { ?>
 
 		<div class="row boxes-links">
 			<?php if ( is_active_sidebar( 'biblioteca_01' ) ) : ?>
@@ -69,5 +90,8 @@
 				<?php dynamic_sidebar( 'biblioteca_03' ); ?>
 			<?php endif; ?>
 		</div>
+
+		<?php } ?>
+
 	</div>
 </div><!--  row  -->

@@ -60,7 +60,7 @@ while ( $eventos->have_posts() ) { $eventos->the_post();
 
 								<p class="data"><?php echo $data; ?></p>
 
-								<p><?php echo get_the_content(); ?></p>
+								<p><?php echo get_the_title(); ?></p>
 							</a>
 						</li>
 					<?php endif; ?>
